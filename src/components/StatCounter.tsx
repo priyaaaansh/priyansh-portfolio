@@ -46,7 +46,7 @@ export const StatCounter: React.FC<StatCounterProps> = ({
           requestAnimationFrame(animate);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
     if (elementRef.current) {
@@ -57,14 +57,24 @@ export const StatCounter: React.FC<StatCounterProps> = ({
   }, [value, hasAnimated]);
 
   return (
-    <div ref={elementRef} className="p-5 md:p-6 rounded-3xl bg-dark-800/80 border border-neutral-800 hover:border-neutral-700 transition-colors">
-      <div className="text-3xl md:text-5xl font-mono font-bold text-white tracking-tight flex items-baseline">
-        <span>{displayValue.toFixed(decimals)}</span>
-        <span className="text-accent-cyan ml-0.5">{suffix}</span>
+    <div
+      ref={elementRef}
+      className="p-4 sm:p-5 rounded-3xl bg-dark-800/90 border border-neutral-800 hover:border-neutral-700 transition-colors min-w-0 overflow-hidden flex flex-col justify-between"
+    >
+      <div className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-mono font-bold text-white tracking-tight flex items-baseline flex-nowrap overflow-hidden">
+        <span className="tabular-nums truncate">{displayValue.toFixed(decimals)}</span>
+        <span className="text-accent-cyan ml-0.5 shrink-0">{suffix}</span>
       </div>
-      <div className="text-sm font-semibold text-neutral-200 mt-2 font-display">{label}</div>
-      {sublabel && <div className="text-xs text-neutral-400 mt-0.5">{sublabel}</div>}
+      <div className="mt-2.5">
+        <div className="text-xs sm:text-sm font-semibold text-neutral-200 font-display truncate">
+          {label}
+        </div>
+        {sublabel && (
+          <div className="text-[11px] text-neutral-400 mt-0.5 truncate">
+            {sublabel}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
-

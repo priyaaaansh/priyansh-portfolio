@@ -21,11 +21,11 @@ export const Certifications: React.FC = () => {
     },
     {
       title: '1st Place – SRM BUILDS 2.0 Hackathon',
-      issuer: 'SRMIST',
+      issuer: 'SRM University',
       date: 'Hackathon Award',
       badge: 'UI/UX Track Winner',
       skills: ['Rapid Prototyping', 'Product Thinking', 'UI/UX Ergonomics', 'Full Stack Execution'],
-      description: 'Won 1st place in the UI/UX Track for engineering an accessible, high-performance web solution under 36-hour sprint conditions.',
+      description: 'Won 1st place in the UI/UX Track for engineering an accessible, high-performance web solution under 36-hour sprint conditions at SRM University.',
     },
   ];
 

@@ -52,7 +52,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
               <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
               priyansh.dev
             </span>
-            <span>Jaipur, India [IST]</span>
+            <span>Delhi, India [IST]</span>
           </div>
 
           {/* Central Reveal */}
@@ -87,4 +87,3 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
     </AnimatePresence>
   );
 };
-

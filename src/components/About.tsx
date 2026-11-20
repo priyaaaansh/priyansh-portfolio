@@ -13,12 +13,11 @@ export const About: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-14 items-start">
-        {/* Left Column: B&W Framed Photo Card (matching Behance screenshot) */}
+        {/* Left Column: B&W Framed Photo Card */}
         <div className="lg:col-span-5 flex flex-col gap-4">
           <div className="relative group rounded-3xl overflow-hidden border border-neutral-800 bg-dark-850 p-3 shadow-2xl">
             {/* Visual Photo Container */}
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-900 flex items-center justify-center">
-              {/* Fallback stylized avatar / photo placeholder */}
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80"
                 alt="Priyansh Thapar - Full Stack Developer (TODO: Replace with your photo)"
@@ -34,7 +33,7 @@ export const About: React.FC = () => {
                     <span className="w-2 h-2 rounded-full bg-emerald-400" />
                     Priyansh Thapar
                   </div>
-                  <div className="text-[11px] text-neutral-400">Jaipur, Rajasthan, India</div>
+                  <div className="text-[11px] text-neutral-400">Delhi, India</div>
                 </div>
                 <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20">
                   CSE &apos;26
@@ -56,14 +55,14 @@ export const About: React.FC = () => {
               <GraduationCap className="w-4 h-4 text-accent-cyan shrink-0" />
               <div>
                 <div className="text-neutral-400 text-[10px] uppercase">Education</div>
-                <div className="text-white font-medium text-[11px]">B.Tech CSE, SRMIST</div>
+                <div className="text-white font-medium text-[11px]">B.Tech CSE, SRM University</div>
               </div>
             </div>
             <div className="p-3.5 rounded-2xl bg-dark-800/60 border border-neutral-800/80 flex items-center gap-2.5">
               <MapPin className="w-4 h-4 text-accent-cyan shrink-0" />
               <div>
-                <div className="text-neutral-400 text-[10px] uppercase">Location</div>
-                <div className="text-white font-medium text-[11px]">Jaipur, India</div>
+                <div className="text-neutral-400 text-[10px] uppercase">Based In</div>
+                <div className="text-white font-medium text-[11px]">Delhi, India</div>
               </div>
             </div>
           </div>
@@ -73,16 +72,16 @@ export const About: React.FC = () => {
         <div className="lg:col-span-7 flex flex-col justify-between">
           <div>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-white tracking-tight leading-tight mb-6">
-              Hello! I&apos;m Priyansh, a <span className="italic font-medium text-neutral-200">full-stack developer</span> with hands-on enterprise engineering experience.
+              Hello! I&apos;m Priyansh, a <span className="italic font-medium text-neutral-200">full-stack developer</span> from Delhi, India with hands-on enterprise engineering experience.
             </h2>
 
             <div className="space-y-4 text-neutral-300 text-sm md:text-base leading-relaxed font-light">
               <p>
-                Recent <strong className="text-white font-semibold">B.Tech Computer Science graduate</strong> from SRMIST with 6 months of enterprise full-stack internship experience at <strong className="text-white font-semibold">Octal IT Solution</strong>, building robust web applications and multi-tenant admin dashboards with <span className="text-white font-mono text-xs px-2 py-0.5 rounded bg-dark-800 border border-neutral-700">React.js</span>, <span className="text-white font-mono text-xs px-2 py-0.5 rounded bg-dark-800 border border-neutral-700">TypeScript</span>, <span className="text-white font-mono text-xs px-2 py-0.5 rounded bg-dark-800 border border-neutral-700">Node.js</span>, and <span className="text-white font-mono text-xs px-2 py-0.5 rounded bg-dark-800 border border-neutral-700">MongoDB</span>.
+                Recent <strong className="text-white font-semibold">B.Tech Computer Science graduate from SRM University</strong> with 6 months of enterprise full-stack internship experience in Jaipur at <strong className="text-white font-semibold">Octal IT Solution</strong>, building robust web applications and multi-tenant admin dashboards with <span className="text-white font-mono text-xs px-2 py-0.5 rounded bg-dark-800 border border-neutral-700">React.js</span>, <span className="text-white font-mono text-xs px-2 py-0.5 rounded bg-dark-800 border border-neutral-700">TypeScript</span>, <span className="text-white font-mono text-xs px-2 py-0.5 rounded bg-dark-800 border border-neutral-700">Node.js</span>, and <span className="text-white font-mono text-xs px-2 py-0.5 rounded bg-dark-800 border border-neutral-700">MongoDB</span>.
               </p>
 
               <p>
-                Beyond full-stack development, I spent <span className="text-white italic">3 years leading operations, crowd management, and CRM ticketing data</span> for <strong className="text-white font-semibold">PRISMA</strong> (SRM&apos;s annual flagship techno-cultural festival), orchestrating next-day footfall forecasting for thousands of attendees.
+                Beyond full-stack development, I spent <span className="text-white italic">3 years leading operations, crowd management, and CRM ticketing data</span> for <strong className="text-white font-semibold">PRISMA</strong> (SRM University&apos;s annual flagship techno-cultural festival), orchestrating next-day footfall forecasting for thousands of attendees.
               </p>
 
               <p>
@@ -91,8 +90,8 @@ export const About: React.FC = () => {
             </div>
           </div>
 
-          {/* Stat Counters Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mt-10">
+          {/* Stat Counters Grid: Fixed layout with generous spacing and zero overlapping */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-10">
             <StatCounter
               value={6}
               suffix=" mo"
@@ -103,7 +102,7 @@ export const About: React.FC = () => {
               value={3}
               suffix=" yrs"
               label="Fest Leadership"
-              sublabel="PRISMA SRMIST"
+              sublabel="SRM University"
             />
             <StatCounter
               value={85.9}

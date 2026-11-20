@@ -8,7 +8,7 @@ export const Experience: React.FC = () => {
       duration: '6 months',
       company: 'Octal IT Solution',
       role: 'Full Stack Developer Intern',
-      location: 'Jaipur, India',
+      location: 'Jaipur, India (On-site Internship)',
       type: 'Engineering Internship',
       points: [
         'Architected and built enterprise web apps and admin dashboards using React.js, TypeScript, Node.js, Express.js, and MongoDB.',
@@ -21,12 +21,12 @@ export const Experience: React.FC = () => {
     {
       period: '2023 – 2026',
       duration: '3 years',
-      company: 'PRISMA – Annual Techno-Cultural Fest, SRMIST',
+      company: 'PRISMA – Annual Techno-Cultural Fest, SRM University',
       role: 'Event Operations & Data Lead',
-      location: 'SRMIST, Delhi NCR',
+      location: 'SRM University, Delhi NCR',
       type: 'Campus Leadership',
       points: [
-        'Directed end-to-end event operations, crowd management, and stakeholder coordination for SRMIST’s flagship annual festival.',
+        'Directed end-to-end event operations, crowd management, and stakeholder coordination for SRM University’s flagship annual festival.',
         'Managed attendance, ticketing systems, and centralized CRM data across 3 consecutive years.',
         'Formulated next-day footfall forecasting and emergency resource distribution models for multi-thousand student gatherings.',
       ],
@@ -35,9 +35,9 @@ export const Experience: React.FC = () => {
     {
       period: '2022 – 2024',
       duration: '2 years',
-      company: 'Fashionova – Fashion Society, SRMIST',
+      company: 'Fashionova – Fashion Society, SRM University',
       role: 'Operations & Event Coordination',
-      location: 'SRMIST, Delhi NCR',
+      location: 'SRM University, Delhi NCR',
       type: 'Society Operations',
       points: [
         'Spearheaded team coordination, runway event logistics, and society operational planning.',
@@ -72,7 +72,7 @@ export const Experience: React.FC = () => {
         </div>
       </div>
 
-      {/* Minimalist Timeline matching screenshot 1 */}
+      {/* Minimalist Timeline */}
       <div className="space-y-8">
         {experiences.map((exp, idx) => (
           <div

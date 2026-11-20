@@ -1,8 +1,50 @@
-import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import React, { useState } from 'react';
 import { Marquee } from './Marquee';
 
+interface TechCategory {
+  id: string;
+  badge: string;
+  focusTag: string;
+  title: string;
+  skills: string;
+  footerLeft: string;
+  footerRight: string;
+}
+
 export const TechStack: React.FC = () => {
+  // State for active white card. Changes dynamically when hovering any of the 3 cards
+  const [activeCardIndex, setActiveCardIndex] = useState<number>(0);
+
+  const categories: TechCategory[] = [
+    {
+      id: 'frontend',
+      badge: 'Core Competency',
+      focusTag: 'Primary Focus',
+      title: 'Front-end Architecture',
+      skills: 'TypeScript / React.js / Next.js / TanStack Start / TanStack Query / Tailwind CSS / Framer Motion / GSAP / Redux Toolkit / Zustand / HTML5 & CSS3 / Modern Web APIs / JWT / RBAC Client Systems',
+      footerLeft: 'Enterprise React & SSR Dashboards',
+      footerRight: '60fps • Zero CLS',
+    },
+    {
+      id: 'backend',
+      badge: 'Systems & Cloud',
+      focusTag: 'Microservices',
+      title: 'Back-end & Cloud Infrastructure',
+      skills: 'Node.js / Express.js / REST APIs / MongoDB / MySQL / Redis / BullMQ Task Queues / AWS S3 / CloudFront CDN / ACID Transactions / Optimistic Locking / FFmpeg Transcoding',
+      footerLeft: 'Asynchronous streaming & queue automation',
+      footerRight: 'High Reliability',
+    },
+    {
+      id: 'devops',
+      badge: 'Data & Tooling',
+      focusTag: 'Analytics & CI/CD',
+      title: 'DevOps & Data Analytics',
+      skills: 'Git & GitHub / Docker / CI/CD Pipelines / Linux / Postman / Swagger & OpenAPI / Python / Scikit-learn / NumPy / Matplotlib / Tableau / PowerBI / Anomaly Detection',
+      footerLeft: 'Predictive intelligence & developer tooling',
+      footerRight: 'Continuous Integration',
+    },
+  ];
+
   const allSkills = [
     'React.js',
     'TypeScript',
@@ -46,99 +88,85 @@ export const TechStack: React.FC = () => {
           </p>
         </div>
         <div className="text-xs font-mono text-neutral-400 max-w-xs italic">
-          &quot;Some of my favorite technologies, topics, and tools that I build with daily.&quot;
+          &quot;Hover over any stack to inspect focus areas and engineering depth.&quot;
         </div>
       </div>
 
-      {/* Bento Grid layout directly matching reference screenshot 2 */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-5 mb-14">
-        {/* Card 1: INVERTED WHITE CARD (matching the Behance Front-end highlight card) */}
-        <div className="md:col-span-7 rounded-3xl bg-white text-dark-900 p-8 md:p-10 flex flex-col justify-between shadow-2xl relative overflow-hidden group">
-          <div className="relative z-10">
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-xs font-mono uppercase tracking-widest text-neutral-600 font-semibold">
-                Core Competency
-              </span>
-              <span className="text-xs font-mono px-3 py-1 rounded-full bg-neutral-900 text-white font-medium">
-                Primary Focus
-              </span>
-            </div>
-            <h3 className="text-2xl md:text-3xl font-display font-bold text-dark-950 mb-4">
-              Front-end Architecture
-            </h3>
-            <p className="text-neutral-700 text-sm md:text-base leading-relaxed font-mono font-medium">
-              TypeScript / React.js / Next.js / TanStack Start / TanStack Query / Tailwind CSS / Redux Toolkit / Zustand / HTML5 &amp; CSS3 / Modern Web APIs / JWT / RBAC Client Systems
-            </p>
-          </div>
+      {/* 3-Card Bento Grid: Hovering ANY card dynamically turns it crisp white with dark text */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14 items-stretch">
+        {categories.map((cat, idx) => {
+          const isActive = activeCardIndex === idx;
 
-          <div className="mt-8 pt-6 border-t border-neutral-200/80 flex items-center justify-between text-xs font-mono text-neutral-600">
-            <span>Enterprise React &amp; SSR Dashboards</span>
-            <span className="font-bold text-dark-900 flex items-center gap-1">
-              60fps &bull; Zero CLS
-            </span>
-          </div>
-        </div>
+          return (
+            <div
+              key={cat.id}
+              onMouseEnter={() => setActiveCardIndex(idx)}
+              className={`rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 cursor-pointer min-h-[380px] ${
+                isActive
+                  ? 'bg-white text-dark-950 shadow-2xl scale-[1.02] border border-white'
+                  : 'bg-dark-850 text-white border border-neutral-800 hover:border-neutral-700'
+              }`}
+            >
+              <div>
+                {/* Header tags */}
+                <div className="flex items-center justify-between mb-5">
+                  <span
+                    className={`text-[11px] font-mono uppercase tracking-widest font-semibold transition-colors ${
+                      isActive ? 'text-neutral-600' : 'text-neutral-400'
+                    }`}
+                  >
+                    {cat.badge}
+                  </span>
+                  <span
+                    className={`text-[11px] font-mono px-3 py-1 rounded-full font-medium transition-colors ${
+                      isActive
+                        ? 'bg-neutral-900 text-white'
+                        : 'bg-dark-800 text-neutral-300 border border-neutral-700'
+                    }`}
+                  >
+                    {cat.focusTag}
+                  </span>
+                </div>
 
-        {/* Card 2: Styles & Motion (matching Styles card in screenshot 2) */}
-        <div className="md:col-span-5 rounded-3xl bg-dark-850 border border-neutral-800 p-8 flex flex-col justify-between relative group hover:border-neutral-700 transition-all">
-          <div>
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl md:text-2xl font-display font-bold text-white">
-                Styles &amp; Motion
-              </h3>
-              <div className="w-10 h-10 rounded-full bg-dark-750 border border-neutral-700 flex items-center justify-center text-white group-hover:bg-white group-hover:text-dark-900 transition-colors">
-                <ArrowUpRight className="w-4 h-4" />
+                {/* Title */}
+                <h3
+                  className={`text-2xl md:text-2xl font-display font-bold mb-4 transition-colors ${
+                    isActive ? 'text-dark-950' : 'text-white'
+                  }`}
+                >
+                  {cat.title}
+                </h3>
+
+                {/* Skills list */}
+                <p
+                  className={`text-xs sm:text-sm leading-relaxed font-mono font-normal transition-colors ${
+                    isActive ? 'text-neutral-800' : 'text-neutral-400'
+                  }`}
+                >
+                  {cat.skills}
+                </p>
+              </div>
+
+              {/* Bottom footer status */}
+              <div
+                className={`mt-8 pt-5 border-t flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono transition-colors ${
+                  isActive
+                    ? 'border-neutral-200 text-neutral-700'
+                    : 'border-neutral-800 text-neutral-500'
+                }`}
+              >
+                <span>{cat.footerLeft}</span>
+                <span
+                  className={`font-semibold shrink-0 ${
+                    isActive ? 'text-dark-900' : 'text-accent-cyan'
+                  }`}
+                >
+                  {cat.footerRight}
+                </span>
               </div>
             </div>
-            <p className="text-neutral-400 text-sm md:text-base leading-relaxed font-mono">
-              Tailwind CSS / Framer Motion / GSAP / Lenis Smooth Scroll / Micro-interactions / Figma / Responsive Layouts (360px &rarr; 4K)
-            </p>
-          </div>
-          <div className="mt-8 text-xs font-mono text-neutral-500">
-            Fluid ergonomics &amp; award-level motion
-          </div>
-        </div>
-
-        {/* Card 3: Back-end & Cloud (matching Back-end card in screenshot 2) */}
-        <div className="md:col-span-7 rounded-3xl bg-dark-850 border border-neutral-800 p-8 flex flex-col justify-between relative group hover:border-neutral-700 transition-all">
-          <div>
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl md:text-2xl font-display font-bold text-white">
-                Back-end &amp; Cloud Infrastructure
-              </h3>
-              <div className="w-10 h-10 rounded-full bg-dark-750 border border-neutral-700 flex items-center justify-center text-white group-hover:bg-white group-hover:text-dark-900 transition-colors">
-                <ArrowUpRight className="w-4 h-4" />
-              </div>
-            </div>
-            <p className="text-neutral-400 text-sm md:text-base leading-relaxed font-mono">
-              Node.js / Express.js / REST APIs / MongoDB / MySQL / Redis / BullMQ Task Queues / AWS S3 / CloudFront CDN / ACID Transactions / Optimistic Locking / FFmpeg Transcoding
-            </p>
-          </div>
-          <div className="mt-8 flex items-center justify-between text-xs font-mono text-neutral-500">
-            <span>Asynchronous streaming &amp; queue automation</span>
-            <span className="text-accent-cyan">High Reliability</span>
-          </div>
-        </div>
-
-        {/* Card 4: DevOps & Data Analytics */}
-        <div className="md:col-span-5 rounded-3xl bg-dark-850 border border-neutral-800 p-8 flex flex-col justify-between relative group hover:border-neutral-700 transition-all">
-          <div>
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl md:text-2xl font-display font-bold text-white">
-                DevOps &amp; Analytics
-              </h3>
-              <div className="w-10 h-10 rounded-full bg-dark-750 border border-neutral-700 flex items-center justify-center text-white group-hover:bg-white group-hover:text-dark-900 transition-colors">
-                <ArrowUpRight className="w-4 h-4" />
-              </div>
-            </div>
-            <p className="text-neutral-400 text-sm md:text-base leading-relaxed font-mono">
-              Git &amp; GitHub / Linux / Postman / Swagger / Python / Scikit-learn / NumPy / Matplotlib / Tableau / PowerBI / Anomaly Detection
-            </p>
-          </div>
-          <div className="mt-8 text-xs font-mono text-neutral-500">
-            Predictive intelligence &amp; developer tooling
-          </div>
-        </div>
+          );
+        })}
       </div>
 
       {/* Infinite scrolling ticker */}
@@ -146,4 +174,3 @@ export const TechStack: React.FC = () => {
     </section>
   );
 };
-

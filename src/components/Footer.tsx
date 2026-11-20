@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const [jaipurTime, setJaipurTime] = useState('');
+  const [delhiTime, setDelhiTime] = useState('');
 
   useEffect(() => {
     const updateTime = () => {
@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
         second: '2-digit',
         hour12: false,
       };
-      setJaipurTime(new Intl.DateTimeFormat('en-GB', options).format(now));
+      setDelhiTime(new Intl.DateTimeFormat('en-GB', options).format(now));
     };
 
     updateTime();
@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-wrap items-center gap-4">
           <span className="flex items-center gap-2 text-neutral-300">
             <span className="w-2 h-2 rounded-full bg-emerald-400" />
-            Jaipur, IN &bull; {jaipurTime} IST
+            Delhi, IN &bull; {delhiTime} IST
           </span>
           <span>&copy; {new Date().getFullYear()} Priyansh Thapar. All rights reserved.</span>
         </div>
@@ -55,4 +55,3 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
-

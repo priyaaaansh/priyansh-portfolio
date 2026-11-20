@@ -149,7 +149,7 @@ export const Contact: React.FC = () => {
             >
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-neutral-400 group-hover:text-white" />
-                <span>+91 8595172064 (Jaipur, India)</span>
+                <span>+91 8595172064 (Delhi, India)</span>
               </div>
               <ArrowUpRight className="w-3.5 h-3.5 text-neutral-500 group-hover:text-white" />
             </a>
