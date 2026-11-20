@@ -56,3 +56,4 @@ export const SectionDots: React.FC<SectionDotsProps> = ({ activeSection }) => {
     </nav>
   );
 };
+
