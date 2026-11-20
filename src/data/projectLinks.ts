@@ -17,25 +17,25 @@ export const projectLinks: Record<string, ProjectLinkItem> = {
   'uthsava-admin': {
     id: 'uthsava-admin',
     name: 'Uthsava Admin Dashboard',
-    githubUrl: 'https://github.com/TODO_GITHUB_USERNAME/uthsava-admin', // TODO: Paste your Uthsava Admin GitHub repo URL here
+    githubUrl: 'https://github.com/priyaaaansh/uthsava-admin',
     liveUrl: 'https://uthsava-admin-demo.vercel.app',
   },
   'inventory-warehouse-mgmt': {
     id: 'inventory-warehouse-mgmt',
     name: 'Inventory & Warehouse Management System',
-    githubUrl: 'https://github.com/TODO_GITHUB_USERNAME/warehouse-inventory-system', // TODO: Paste your Warehouse GitHub repo URL here
+    githubUrl: 'https://github.com/priyaaaansh/warehouse-inventory-system',
     liveUrl: 'https://warehouse-system-demo.vercel.app',
   },
   'ai-disaster-management': {
     id: 'ai-disaster-management',
     name: 'AI Wildfire & Disaster Response',
-    githubUrl: 'https://github.com/TODO_GITHUB_USERNAME/ai-disaster-management', // TODO: Paste your AI Disaster Management GitHub repo URL here
+    githubUrl: 'https://github.com/priyaaaansh/ai-disaster-management',
     liveUrl: 'https://disaster-intelligence-demo.vercel.app',
   },
   'cancer-risk-prediction': {
     id: 'cancer-risk-prediction',
     name: 'Clinical Risk Prediction Model',
-    githubUrl: 'https://github.com/TODO_GITHUB_USERNAME/lung-cancer-risk-ml', // TODO: Paste your Cancer Risk Model GitHub repo URL here
+    githubUrl: 'https://github.com/priyaaaansh/lung-cancer-risk-ml',
   },
 };
 
@@ -47,7 +47,7 @@ export function getProjectLinks(projectId: string): ProjectLinkItem {
     projectLinks[projectId] || {
       id: projectId,
       name: 'Project',
-      githubUrl: 'https://github.com/TODO_GITHUB_USERNAME',
+      githubUrl: 'https://github.com/priyaaaansh',
     }
   );
 }

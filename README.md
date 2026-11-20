@@ -86,7 +86,7 @@ The UI, category filters, bento cards, and interactive modal will render it auto
 
 Before sharing publicly, verify these placeholders:
 
-- [ ] **GitHub Profile**: Replace `TODO_GITHUB_USERNAME` in `src/components/Hero.tsx`, `src/components/Contact.tsx`, and `src/data/projects.ts`.
+- [x] **GitHub Profile**: Linked to `https://github.com/priyaaaansh`.
 - [ ] **Profile Photo**: Place your personal headshot at `public/profile.jpg` (or replace the image URL in `src/components/About.tsx`).
 - [ ] **Resume**: Your resume is currently placed at `public/Priyansh_Thapar_Resume.pdf`. Verify or update whenever you have new credentials.
 - [ ] **Contact Form**: Update the Formspree endpoint in `src/components/Contact.tsx` (`https://formspree.io/f/YOUR_FORM_ID`) to receive contact inquiries directly in your inbox.

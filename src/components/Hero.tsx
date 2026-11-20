@@ -106,7 +106,7 @@ export const Hero: React.FC = () => {
         {/* Social Pill Matrix matching Behance screenshot */}
         <motion.div variants={itemVariants} className="flex flex-wrap gap-2.5 text-xs font-mono">
           <a
-            href="https://github.com/TODO_GITHUB_USERNAME"
+            href="https://github.com/priyaaaansh"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-800 bg-dark-850/80 text-neutral-300 hover:text-white hover:border-neutral-600 transition-all"

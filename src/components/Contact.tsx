@@ -107,7 +107,7 @@ export const Contact: React.FC = () => {
           {/* Social Pill Grid */}
           <div className="space-y-2.5">
             <a
-              href="https://github.com/TODO_GITHUB_USERNAME"
+              href="https://github.com/priyaaaansh"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-between p-3.5 rounded-2xl bg-dark-850 border border-neutral-800 hover:border-neutral-700 text-xs font-mono text-neutral-300 hover:text-white transition-all group"
