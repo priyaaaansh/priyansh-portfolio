@@ -1,94 +1,52 @@
-# Priyansh Thapar — Developer Portfolio
+# 🌟 Priyansh Thapar - Full Stack Developer Portfolio
 
-Award-level personal portfolio website engineered for **Priyansh Thapar** (Full Stack Web Developer & Data Analyst), crafted with **Vite, React, TypeScript, Tailwind CSS, Framer Motion, GSAP, and Lenis**.
+A modern dark mode portfolio showcasing full-stack applications, enterprise experience, and interactive systems.
 
-Designed following high-end editorial Behance & Awwwards aesthetics with deep charcoal tones, high-contrast bento cards, fluid contour lines, and precision micro-interactions.
+## ✨ Features
 
----
+- 🎨 **Dark Mode Design** - High-contrast editorial dark theme with custom accents
+- 🖼️ **Hero Section** - Clean typography, status indicators, and interactive social links
+- 📱 **Fully Responsive** - Flawless layout across mobile, tablet, laptop, and ultra-wide displays
+- ⚡ **Smooth Animations** - Hardware-accelerated transitions, interactive hover states, and particle effects
+- 📊 **Project Showcase** - Filterable catalog with modal deep-dives and tech stack tags
+- 🏆 **Experience & Certifications** - Enterprise internships, fest leadership, and verified PDF credentials viewer
+- 💬 **Contact Section** - Direct email messaging with form submission feedback
+- 🎯 **Modular Architecture** - Type-safe, component-driven codebase built with React and TypeScript
+- ✨ **Professional & Sleek** - Clean UI without clutter, hidden scrollbars, and fluid navigation
 
-## 🛠 Tech Stack
+## 📁 File Structure
 
-* **Framework**: React 18 + TypeScript + Vite
-* **Styling**: Tailwind CSS + Custom Design Tokens
-* **Motion & Choreography**: Framer Motion + GSAP + Lenis Smooth Scroll
-* **Icons**: Lucide React
-* **Micro-interactions**: Canvas Background Particle Aura + Canvas Confetti
-* **Hosting**: GitHub Pages via automated GitHub Actions
-
----
-
-## 🚀 Quick Start (Local Development)
-
-```bash
-# 1. Install dependencies
-npm install
-
-# 2. Run local development server
-npm run dev
-
-# 3. Build for production
-npm run build
-
-# 4. Preview production build locally
-npm run preview
 ```
-
----
-
-## 📦 Data-Driven Projects
-
-All project items are centralized in **`src/data/projects.ts`**.
-To add or update a project, simply add a new object to the `projects` array:
-
-```typescript
-{
-  id: 'my-project',
-  title: 'Project Title',
-  tagline: 'Short punchy tagline',
-  shortDescription: '1-2 sentence overview',
-  longerDescription: 'Full architectural and engineering summary',
-  tech: ['React.js', 'TypeScript', 'Node.js'],
-  githubUrl: 'https://github.com/username/project',
-  liveUrl: 'https://project-demo.com', // optional
-  image: 'https://...',
-  featured: true,
-  category: 'Full Stack',
-  metrics: ['Metric 1', 'Metric 2'],
-  highlights: ['Highlight 1', 'Highlight 2']
-}
+portfolio/
+├── public/
+│   ├── certificates/                     # Verified PDF credentials (Deloitte, Datacom)
+│   ├── images/                           # Local vector mockups & project graphics
+│   ├── Priyansh_Thapar_Resume.pdf        # Downloadable resume document
+│   └── profile.jpg                       # Personal profile photo
+├── src/
+│   ├── components/                       # Modular UI components
+│   │   ├── About.tsx                     # Bio, education & enterprise experience stats
+│   │   ├── CanvasBackground.tsx          # Interactive ambient particle background
+│   │   ├── Certifications.tsx            # Certifications list with interactive PDF modal
+│   │   ├── Contact.tsx                   # Contact form and direct communication channels
+│   │   ├── Experience.tsx                # Enterprise timeline & leadership experience
+│   │   ├── Footer.tsx                    # Minimalist footer & back-to-top button
+│   │   ├── Hero.tsx                      # Header hero section & scroll indicator
+│   │   ├── Navbar.tsx                    # Floating blur navbar with section navigation
+│   │   ├── ProjectModal.tsx              # Deep-dive preview modal for projects
+│   │   ├── Projects.tsx                  # Filterable project showcase grid
+│   │   └── TechStack.tsx                 # Interactive tech competency cards
+│   ├── data/
+│   │   ├── projectLinks.ts               # Centralized project URLs & GitHub repository links
+│   │   └── projects.ts                   # Structured project metadata, metrics & tags
+│   ├── utils/
+│   │   └── assets.ts                     # GitHub Pages dynamic asset path resolver
+│   ├── App.tsx                           # Root application layout
+│   ├── index.css                         # Global Tailwind styles & hidden scrollbars
+│   └── main.tsx                          # Application DOM entry point
+├── index.html                            # Main HTML entry file
+├── package.json                          # Dependencies and build scripts
+├── tailwind.config.js                    # Tailwind styling configuration
+├── vite.config.ts                        # Vite bundler & GitHub Pages base configuration
+└── README.md                             # Project documentation
 ```
-
-The UI, category filters, bento cards, and interactive modal will render it automatically.
-
----
-
-## 🌐 Deploy to GitHub Pages
-
-1. **Push this repository to GitHub**:
-   ```bash
-   git add .
-   git commit -m "feat: initial portfolio release"
-   git branch -M main
-   git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPO_NAME>.git
-   git push -u origin main
-   ```
-
-2. **Enable GitHub Pages**:
-   - Go to your repository on GitHub.
-   - Navigate to **Settings** &rarr; **Pages**.
-   - Under **Build and deployment** &rarr; **Source**, select **GitHub Actions**.
-
-3. Every commit pushed to `main` will automatically trigger `.github/workflows/deploy.yml` and publish your portfolio live!
-
----
-
-## 📝 Personalization Checklist (TODO Items)
-
-Before sharing publicly, verify these placeholders:
-
-- [x] **GitHub Profile**: Linked to `https://github.com/priyaaaansh`.
-- [ ] **Profile Photo**: Place your personal headshot at `public/profile.jpg` (or replace the image URL in `src/components/About.tsx`).
-- [ ] **Resume**: Your resume is currently placed at `public/Priyansh_Thapar_Resume.pdf`. Verify or update whenever you have new credentials.
-- [ ] **Contact Form**: Update the Formspree endpoint in `src/components/Contact.tsx` (`https://formspree.io/f/YOUR_FORM_ID`) to receive contact inquiries directly in your inbox.
-- [ ] **Project URLs**: Add exact GitHub repo links for `Uthsava Admin`, `Inventory & Warehouse Management`, `AI Disaster Management`, and `Cancer Risk Prediction` in `src/data/projects.ts`.
-
