@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgDisaster" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#0F172A" />
+      <stop offset="50%" stopColor="#1E1B4B" />
+      <stop offset="100%" stopColor="#0B0B0D" />
+    </linearGradient>
+    <radialGradient id="hotspot1" cx="45%" cy="40%" r="35%">
+      <stop offset="0%" stopColor="#EF4444" stopOpacity="0.85" />
+      <stop offset="40%" stopColor="#F97316" stopOpacity="0.5" />
+      <stop offset="100%" stopColor="#EF4444" stopOpacity="0" />
+    </radialGradient>
+    <radialGradient id="hotspot2" cx="72%" cy="65%" r="28%">
+      <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.75" />
+      <stop offset="50%" stopColor="#EF4444" stopOpacity="0.35" />
+      <stop offset="100%" stopColor="#F59E0B" stopOpacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bgDisaster)" />
+
+  <!-- Tactical Grid -->
+  <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
+    <line x1="100" y1="0" x2="100" y2="675" />
+    <line x1="300" y1="0" x2="300" y2="675" />
+    <line x1="500" y1="0" x2="500" y2="675" />
+    <line x1="700" y1="0" x2="700" y2="675" />
+    <line x1="900" y1="0" x2="900" y2="675" />
+    <line x1="1100" y1="0" x2="1100" y2="675" />
+    <line x1="0" y1="120" x2="1200" y2="120" />
+    <line x1="0" y1="260" x2="1200" y2="260" />
+    <line x1="0" y1="400" x2="1200" y2="400" />
+    <line x1="0" y1="540" x2="1200" y2="540" />
+  </g>
+
+  <!-- Heatmap Clouds -->
+  <circle cx="540" cy="300" r="260" fill="url(#hotspot1)" />
+  <circle cx="860" cy="440" r="200" fill="url(#hotspot2)" />
+
+  <!-- Map Topography Isolines -->
+  <path d="M 120 500 Q 320 280 560 340 T 960 220 T 1180 380" fill="none" stroke="#38BDF8" stroke-width="2" stroke-dasharray="6 4" opacity="0.6" />
+  <path d="M 80 560 Q 300 360 540 400 T 920 300 T 1150 440" fill="none" stroke="#F97316" stroke-width="2" opacity="0.7" />
+
+  <!-- Incident Command HUD Interface Card -->
+  <rect x="80" y="70" width="420" height="230" rx="18" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+  <circle cx="110" cy="105" r="7" fill="#EF4444" />
+  <text x="130" y="112" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="16" fill="#F8FAFC">NASA FIRMS Satellite Telemetry</text>
+  <text x="110" y="145" font-family="'JetBrains Mono', monospace" font-size="13" fill="#94A3B8">Sensor: VIIRS &bull; Lat: 28.6139N Long: 77.2090E</text>
+  <text x="110" y="175" font-family="'JetBrains Mono', monospace" font-size="13" fill="#38BDF8">Z-Score Anomaly: 4.82 &sigma; (Critical Hotspot)</text>
+  <text x="110" y="205" font-family="'JetBrains Mono', monospace" font-size="13" fill="#F59E0B">Estimated Velocity: 14.2 km/h &bull; Heading: NW</text>
+  
+  <rect x="110" y="235" width="160" height="34" rx="8" fill="#EF4444" />
+  <text x="190" y="257" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="13" fill="#FFFFFF" text-anchor="middle">PRIORITY DISPATCH</text>
+
+  <!-- Coordinate Target Reticle -->
+  <circle cx="560" cy="320" r="38" fill="none" stroke="#EF4444" stroke-width="2.5" />
+  <circle cx="560" cy="320" r="6" fill="#EF4444" />
+  <line x1="560" y1="270" x2="560" y2="370" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="3 3" />
+  <line x1="510" y1="320" x2="610" y2="320" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="3 3" />
+
+  <!-- Badge in bottom right -->
+  <rect x="860" y="560" width="260" height="48" rx="24" fill="rgba(11, 11, 13, 0.9)" stroke="rgba(255, 255, 255, 0.2)" />
+  <circle cx="890" cy="584" r="5" fill="#10B981" />
+  <text x="910" y="590" font-family="'JetBrains Mono', monospace" font-size="14" fill="#E2E8F0">Supabase &bull; Leaflet.js</text>
+</svg>

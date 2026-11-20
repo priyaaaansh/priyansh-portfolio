@@ -14,6 +14,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, ind
   const [rotateY, setRotateY] = useState(0);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Only apply 3D tilt on devices that support fine hover
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -21,8 +24,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, ind
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rX = ((y - centerY) / centerY) * -5;
-    const rY = ((x - centerX) / centerX) * 5;
+    const rX = ((y - centerY) / centerY) * -4;
+    const rY = ((x - centerX) / centerX) * 4;
 
     setRotateX(rX);
     setRotateY(rY);
@@ -33,19 +36,27 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, ind
     setRotateY(0);
   };
 
+  const handleCardClick = () => {
+    if (project.githubUrl) {
+      window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.6, delay: index * 0.12 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onClick={handleCardClick}
       style={{
         transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
         transition: 'transform 0.15s ease-out',
       }}
-      className="relative rounded-3xl bg-dark-850 border border-neutral-800 p-6 md:p-8 flex flex-col justify-between group hover:border-neutral-700 hover:shadow-2xl transition-all"
+      className="relative rounded-3xl bg-dark-850 border border-neutral-800 p-6 md:p-8 flex flex-col justify-between group hover:border-neutral-700 hover:shadow-2xl transition-all cursor-pointer"
+      title={`Click to open GitHub repository for ${project.title}`}
     >
       <div>
         {/* Top Media / Mockup Container */}
@@ -56,10 +67,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, ind
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent opacity-50" />
 
           {/* Category Badge & Featured Tag */}
-          <div className="absolute top-3 left-3 flex items-center gap-2">
+          <div className="absolute top-3 left-3 flex flex-wrap items-center gap-2">
             <span className="px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider bg-dark-900/90 backdrop-blur-md text-white border border-neutral-700/80">
               {project.category}
             </span>
@@ -70,7 +81,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, ind
             )}
           </div>
 
-          {/* Quick Action Floating Round Buttons matching reference */}
+          {/* Quick Action Floating Round Buttons */}
           <div className="absolute bottom-3 right-3 flex items-center gap-2">
             <a
               href={project.githubUrl}
@@ -99,7 +110,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, ind
         </div>
 
         {/* Project Header */}
-        <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">
           {project.title}
         </h3>
 
@@ -115,8 +126,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, ind
           ))}
         </div>
 
-        {/* Editorial Description with italics matching reference screenshots */}
-        <p className="text-neutral-300 text-sm md:text-base leading-relaxed font-light mb-4">
+        {/* Editorial Description with italics matching reference */}
+        <p className="text-neutral-300 text-xs sm:text-sm md:text-base leading-relaxed font-light mb-4">
           <span className="italic text-neutral-100 font-medium">{project.tagline}</span> &mdash;{' '}
           {project.shortDescription}
         </p>
@@ -137,7 +148,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, ind
       {/* Card Footer Actions */}
       <div className="pt-4 border-t border-neutral-800/80 flex items-center justify-between">
         <button
-          onClick={() => onSelect(project)}
+          onClick={(e) => {
+            e.stopPropagation();
+            onSelect(project);
+          }}
           className="inline-flex items-center gap-2 text-xs font-mono text-neutral-300 hover:text-white group-hover:text-accent-cyan transition-colors"
         >
           <Layers className="w-3.5 h-3.5" />
@@ -145,8 +159,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, ind
           <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </button>
 
-        <span className="text-[11px] font-mono text-neutral-500">
-          React &amp; TypeScript
+        <span className="text-[11px] font-mono text-neutral-500 flex items-center gap-1">
+          <Github className="w-3 h-3" />
+          <span>Open Repo &rarr;</span>
         </span>
       </div>
     </motion.div>

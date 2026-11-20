@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgWarehouse" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#0B0B0D" />
+      <stop offset="60%" stopColor="#141E18" />
+      <stop offset="100%" stopColor="#0B0B0D" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bgWarehouse)" />
+
+  <!-- Layout Container -->
+  <rect x="80" y="60" width="1040" height="555" rx="20" fill="#111814" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+  <rect x="80" y="60" width="1040" height="56" rx="20" fill="#19261E" />
+  <circle cx="120" cy="88" r="6" fill="#EF4444" />
+  <circle cx="140" cy="88" r="6" fill="#F59E0B" />
+  <circle cx="160" cy="88" r="6" fill="#10B981" />
+  <text x="200" y="94" font-family="'JetBrains Mono', monospace" font-size="14" fill="#6EE7B7">warehouse-inventory-engine.sys / slotting-matrix</text>
+
+  <!-- Left Sidebar Hierarchy Tree -->
+  <rect x="80" y="116" width="280" height="499" fill="#0D1410" />
+  <text x="110" y="160" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="16" fill="#FFFFFF">WAREHOUSE ZONES</text>
+  <text x="110" y="200" font-family="'JetBrains Mono', monospace" font-size="13" fill="#10B981">&gt; Zone A - Ambient Pallets</text>
+  <text x="130" y="235" font-family="'JetBrains Mono', monospace" font-size="12" fill="#94A3B8">&bull; Aisle 01 (FEFO Active)</text>
+  <text x="130" y="265" font-family="'JetBrains Mono', monospace" font-size="12" fill="#94A3B8">&bull; Aisle 02 (FIFO Standard)</text>
+  <text x="110" y="305" font-family="'JetBrains Mono', monospace" font-size="13" fill="#6EE7B7">&gt; Zone B - Cold Chain Storage</text>
+  <text x="110" y="345" font-family="'JetBrains Mono', monospace" font-size="13" fill="#6EE7B7">&gt; Zone C - High-Velocity Pick</text>
+
+  <!-- Right Visual Racks & Telemetry -->
+  <rect x="390" y="150" width="690" height="120" rx="14" fill="#15221B" stroke="rgba(255,255,255,0.06)" />
+  <text x="420" y="185" font-family="'Space Grotesk', sans-serif" font-weight="600" font-size="18" fill="#F8FAFC">Automated FEFO / FIFO Batch Dispatch</text>
+  <text x="420" y="215" font-family="'JetBrains Mono', monospace" font-size="13" fill="#94A3B8">Queue: BullMQ + Redis Pub/Sub &bull; Lock: Optimistic Concurrency Control</text>
+  <rect x="420" y="235" width="220" height="18" rx="9" fill="#10B981" />
+  <rect x="660" y="235" width="160" height="18" rx="9" fill="#38BDF8" />
+  <text x="960" y="248" font-family="'JetBrains Mono', monospace" font-size="12" fill="#10B981">99.98% Accuracy</text>
+
+  <!-- Storage Slotting Grid -->
+  <g fill="#1D2E24" stroke="#2D4637" stroke-width="2">
+    <rect x="390" y="300" width="150" height="90" rx="10" />
+    <rect x="570" y="300" width="150" height="90" rx="10" />
+    <rect x="750" y="300" width="150" height="90" rx="10" />
+    <rect x="930" y="300" width="150" height="90" rx="10" />
+    <rect x="390" y="420" width="150" height="90" rx="10" />
+    <rect x="570" y="420" width="150" height="90" rx="10" />
+    <rect x="750" y="420" width="150" height="90" rx="10" />
+    <rect x="930" y="420" width="150" height="90" rx="10" />
+  </g>
+
+  <text x="465" y="350" font-family="'JetBrains Mono', monospace" font-size="13" fill="#6EE7B7" text-anchor="middle">SLOT A-101</text>
+  <text x="645" y="350" font-family="'JetBrains Mono', monospace" font-size="13" fill="#6EE7B7" text-anchor="middle">SLOT A-102</text>
+  <text x="825" y="350" font-family="'JetBrains Mono', monospace" font-size="13" fill="#6EE7B7" text-anchor="middle">SLOT A-103</text>
+  <text x="1005" y="350" font-family="'JetBrains Mono', monospace" font-size="13" fill="#6EE7B7" text-anchor="middle">SLOT A-104</text>
+</svg>

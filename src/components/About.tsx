@@ -13,18 +13,18 @@ export const About: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-14 items-start">
-        {/* Left Column: B&W Framed Photo Card */}
+        {/* Left Column: Priyansh's Original Photo Card */}
         <div className="lg:col-span-5 flex flex-col gap-4">
           <div className="relative group rounded-3xl overflow-hidden border border-neutral-800 bg-dark-850 p-3 shadow-2xl">
             {/* Visual Photo Container */}
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-900 flex items-center justify-center">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80"
-                alt="Priyansh Thapar - Full Stack Developer (TODO: Replace with your photo)"
-                className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-700 opacity-90"
-                loading="lazy"
+                src="./profile.jpg"
+                alt="Priyansh Thapar - Full Stack Developer"
+                className="w-full h-full object-cover object-top contrast-105 group-hover:scale-105 transition-transform duration-700"
+                loading="eager"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/15 to-transparent opacity-85" />
 
               {/* Status Pill Badge inside photo */}
               <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-dark-900/90 backdrop-blur-md border border-neutral-700/60 flex items-center justify-between">
@@ -39,13 +39,6 @@ export const About: React.FC = () => {
                   CSE &apos;26
                 </span>
               </div>
-            </div>
-
-            {/* Subtle placeholder indicator */}
-            <div className="mt-2 text-center">
-              <span className="text-[11px] font-mono text-neutral-500">
-                [ TODO: Place your profile picture in public/profile.jpg ]
-              </span>
             </div>
           </div>
 
@@ -68,7 +61,7 @@ export const About: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Bio Copy & Live Stat Counters */}
+        {/* Right Column: Bio Copy & 3 Clean Live Stat Counters */}
         <div className="lg:col-span-7 flex flex-col justify-between">
           <div>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-white tracking-tight leading-tight mb-6">
@@ -85,13 +78,13 @@ export const About: React.FC = () => {
               </p>
 
               <p>
-                I thrive at the intersection of <span className="text-accent-cyan font-mono text-xs">Type-Safe Frontend Architecture</span>, <span className="text-accent-cyan font-mono text-xs">High-Throughput Async Pipelines</span> (BullMQ, Redis, AWS S3), and <span className="text-accent-cyan font-mono text-xs">Predictive ML Modeling</span> (85.92% accuracy, 94% recall).
+                I thrive at the intersection of <span className="text-accent-cyan font-mono text-xs">Type-Safe Frontend Architecture</span>, <span className="text-accent-cyan font-mono text-xs">High-Throughput Async Pipelines</span> (BullMQ, Redis, AWS S3), and <span className="text-accent-cyan font-mono text-xs">Scalable Distributed Systems</span>.
               </p>
             </div>
           </div>
 
-          {/* Stat Counters Grid: Fixed layout with generous spacing and zero overlapping */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-10">
+          {/* 3 Stat Counters Grid: Generous breathing room, zero overlapping */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10">
             <StatCounter
               value={6}
               suffix=" mo"
@@ -103,13 +96,6 @@ export const About: React.FC = () => {
               suffix=" yrs"
               label="Fest Leadership"
               sublabel="SRM University"
-            />
-            <StatCounter
-              value={85.9}
-              suffix="%"
-              decimals={1}
-              label="ML Accuracy"
-              sublabel="Risk Model"
             />
             <StatCounter
               value={100}

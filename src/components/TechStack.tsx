@@ -12,8 +12,8 @@ interface TechCategory {
 }
 
 export const TechStack: React.FC = () => {
-  // State for active white card. Changes dynamically when hovering any of the 3 cards
-  const [activeCardIndex, setActiveCardIndex] = useState<number>(0);
+  // State for active white card. Defaults to null (no card is white unless hovered)
+  const [activeCardIndex, setActiveCardIndex] = useState<number | null>(null);
 
   const categories: TechCategory[] = [
     {
@@ -92,8 +92,11 @@ export const TechStack: React.FC = () => {
         </div>
       </div>
 
-      {/* 3-Card Bento Grid: Hovering ANY card dynamically turns it crisp white with dark text */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14 items-stretch">
+      {/* 3-Card Bento Grid: Hovering ANY card dynamically turns it crisp white; when not hovered, none is white */}
+      <div
+        onMouseLeave={() => setActiveCardIndex(null)}
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14 items-stretch"
+      >
         {categories.map((cat, idx) => {
           const isActive = activeCardIndex === idx;
 

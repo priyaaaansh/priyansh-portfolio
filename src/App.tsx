@@ -29,12 +29,12 @@ export const App: React.FC = () => {
     restDelta: 0.001,
   });
 
-  // Active section spy
+  // Active section scroll spy
   useEffect(() => {
     const sections = ['hero', 'about', 'stack', 'projects', 'experience', 'contact'];
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY + 250;
 
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
@@ -53,21 +53,28 @@ export const App: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const sectionAnimation = {
+    initial: { opacity: 0, y: 35 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: '-60px' },
+    transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] },
+  };
+
   return (
     <div className="relative min-h-screen bg-dark-900 text-neutral-100 font-sans selection:bg-accent-cyan/20 selection:text-accent-cyan overflow-x-hidden">
       {/* Intro Preloader */}
       <Preloader onComplete={() => setIsLoaded(true)} />
 
-      {/* Custom Precision Magnetic Cursor */}
+      {/* Custom Precision Magnetic Cursor (hidden on touch/mobile) */}
       <CustomCursor />
 
       {/* Top Scroll Progress Indicator */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accent-cyan via-accent-violet to-white origin-left z-50 pointer-events-none"
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-accent-cyan via-accent-violet to-white origin-left z-50 pointer-events-none"
         style={{ scaleX }}
       />
 
-      {/* Background Topographic Wave Contours (matching Behance screenshots) */}
+      {/* Background Topographic Wave Contours */}
       <ContourLines />
 
       {/* Main Content Area */}
@@ -75,33 +82,35 @@ export const App: React.FC = () => {
         {/* Sticky Glass Navbar */}
         <Navbar activeSection={activeSection} />
 
-        {/* Sections */}
+        {/* Sections with smooth scroll reveals */}
         <main id="main-content">
           <div id="hero">
             <Hero />
           </div>
 
-          <div id="about">
+          <motion.div id="about" {...sectionAnimation}>
             <About />
-          </div>
+          </motion.div>
 
-          <div id="stack">
+          <motion.div id="stack" {...sectionAnimation}>
             <TechStack />
-          </div>
+          </motion.div>
 
-          <div id="projects">
+          <motion.div id="projects" {...sectionAnimation}>
             <Projects />
-          </div>
+          </motion.div>
 
-          <div id="experience">
+          <motion.div id="experience" {...sectionAnimation}>
             <Experience />
-          </div>
+          </motion.div>
 
-          <Certifications />
+          <motion.div {...sectionAnimation}>
+            <Certifications />
+          </motion.div>
 
-          <div id="contact">
+          <motion.div id="contact" {...sectionAnimation}>
             <Contact />
-          </div>
+          </motion.div>
         </main>
 
         {/* Global Footer */}
@@ -112,4 +121,3 @@ export const App: React.FC = () => {
 };
 
 export default App;
-

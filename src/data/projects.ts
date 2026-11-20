@@ -1,9 +1,10 @@
 import { Project } from '../types';
+import { getProjectLinks } from './projectLinks';
 
 /**
  * Projects Data Source
- * To add a new project, simply append an object matching the Project interface.
- * The UI, bento showcase, filters, and detail modals will dynamically render it.
+ * Centralized registry for all projects.
+ * Link details are maintained in ./projectLinks.ts
  */
 export const projects: Project[] = [
   {
@@ -13,9 +14,9 @@ export const projects: Project[] = [
     shortDescription: 'Multi-tenant admin dashboard centralizing content approvals, producer management, payouts, and audit logs with real-time state sync.',
     longerDescription: 'Engineered as the administrative backbone for Uthsava Entertainment streaming platform. Features high-security RBAC, producer royalty settlement calculators, streaming asset transcoding status pipelines, and real-time state synchronization with optimistic UI updates.',
     tech: ['React.js', 'TypeScript', 'TanStack Start', 'TanStack Query', 'Node.js', 'MongoDB', 'AWS S3', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/TODO_GITHUB_USERNAME/uthsava-admin', // TODO: Update with your repo link
-    liveUrl: 'https://TODO-uthsava-admin-demo.vercel.app', // Optional live demo placeholder
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+    githubUrl: getProjectLinks('uthsava-admin').githubUrl,
+    liveUrl: getProjectLinks('uthsava-admin').liveUrl,
+    image: './images/uthsava-admin.svg',
     featured: true,
     category: 'Frontend / Dashboard',
     metrics: [
@@ -37,9 +38,9 @@ export const projects: Project[] = [
     shortDescription: 'Scalable warehouse logistics platform with hierarchical storage slotting, automated purchase orders, and asynchronous queue processing.',
     longerDescription: 'A robust warehouse management system engineered to streamline supply chain logistics. Features multi-warehouse slotting algorithms, FEFO/FIFO batch tracking, PO authorization workflows, and background email dispatchers powered by BullMQ and Redis.',
     tech: ['React.js', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'BullMQ', 'Redis', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/TODO_GITHUB_USERNAME/warehouse-inventory-system', // TODO: Update with your repo link
-    liveUrl: 'https://TODO-warehouse-system.vercel.app',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
+    githubUrl: getProjectLinks('inventory-warehouse-mgmt').githubUrl,
+    liveUrl: getProjectLinks('inventory-warehouse-mgmt').liveUrl,
+    image: './images/warehouse.svg',
     featured: true,
     category: 'Full Stack',
     metrics: [
@@ -60,9 +61,9 @@ export const projects: Project[] = [
     shortDescription: 'Geospatial hazard intelligence platform combining NASA FIRMS satellite data with ML anomaly detection for real-time wildfire triage.',
     longerDescription: 'Leverages live satellite telemetry from NASA FIRMS to detect thermal hotspots across forest regions. Employs statistical Z-score anomaly detection and Random Forest models to calculate wildfire velocity, prioritizing emergency personnel and aerial assets on interactive tactical maps.',
     tech: ['Python', 'Flask', 'Scikit-learn', 'Supabase', 'NASA FIRMS API', 'Leaflet.js', 'React.js'],
-    githubUrl: 'https://github.com/TODO_GITHUB_USERNAME/ai-disaster-management', // TODO: Update with your repo link
-    liveUrl: 'https://TODO-disaster-intelligence.vercel.app',
-    image: 'https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=1200&q=80',
+    githubUrl: getProjectLinks('ai-disaster-management').githubUrl,
+    liveUrl: getProjectLinks('ai-disaster-management').liveUrl,
+    image: './images/disaster-ai.svg',
     featured: true,
     category: 'AI / ML',
     metrics: [
@@ -83,8 +84,8 @@ export const projects: Project[] = [
     shortDescription: 'Machine learning clinical decision engine achieving 85.92% classification accuracy and 94% recall for early risk stratification.',
     longerDescription: 'Comprehensive biomedical data modeling project focusing on patient screening datasets. Employs rigorous feature engineering, SMOTE balancing, hyperparameter grid search, and explainable AI feature importance plots to aid diagnostic decision making.',
     tech: ['Python', 'Scikit-learn', 'NumPy', 'Matplotlib', 'Pandas', 'FastAPI'],
-    githubUrl: 'https://github.com/TODO_GITHUB_USERNAME/lung-cancer-risk-ml', // TODO: Update with your repo link
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
+    githubUrl: getProjectLinks('cancer-risk-prediction').githubUrl,
+    image: './images/cancer-risk.svg',
     featured: false,
     category: 'AI / ML',
     metrics: [
@@ -99,4 +100,3 @@ export const projects: Project[] = [
     ]
   }
 ];
-
