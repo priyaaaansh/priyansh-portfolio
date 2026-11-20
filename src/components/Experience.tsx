@@ -48,7 +48,7 @@ export const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="relative py-20 md:py-32 px-6 md:px-14 lg:px-20 max-w-6xl mx-auto">
+    <section id="experience" className="snap-section relative py-20 md:py-32 px-6 md:px-14 lg:px-20 max-w-6xl mx-auto">
       {/* Section Code Moniker */}
       <div className="flex items-center gap-2 mb-8">
         <span className="text-xs md:text-sm font-mono text-neutral-400 tracking-widest">

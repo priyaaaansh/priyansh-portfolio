@@ -64,3 +64,4 @@
   <circle cx="890" cy="584" r="5" fill="#10B981" />
   <text x="910" y="590" font-family="'JetBrains Mono', monospace" font-size="14" fill="#E2E8F0">Supabase &bull; Leaflet.js</text>
 </svg>
+

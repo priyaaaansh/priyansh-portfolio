@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { useLenis } from './hooks/useLenis';
+import { useSectionSnap, SECTION_IDS } from './hooks/useSectionSnap';
 import { CustomCursor } from './components/CustomCursor';
 import { ContourLines } from './components/ContourLines';
 import { Preloader } from './components/Preloader';
 import { Navbar } from './components/Navbar';
+import { SectionDots } from './components/SectionDots';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { TechStack } from './components/TechStack';
@@ -18,25 +20,26 @@ export const App: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
-  // Initialize Lenis smooth scroll
+  // Initialize native smooth scroll
   useLenis();
+
+  // Controlled 1-scroll-per-section snapping (prevents overshooting and extra moving up/down)
+  useSectionSnap();
 
   // Scroll Progress Bar
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
+    stiffness: 120,
     damping: 30,
     restDelta: 0.001,
   });
 
   // Active section scroll spy
   useEffect(() => {
-    const sections = ['hero', 'about', 'stack', 'projects', 'experience', 'contact'];
-
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 250;
+      const scrollPosition = window.scrollY + window.innerHeight * 0.35;
 
-      for (const sectionId of sections) {
+      for (const sectionId of SECTION_IDS) {
         const el = document.getElementById(sectionId);
         if (el) {
           const top = el.offsetTop;
@@ -52,13 +55,6 @@ export const App: React.FC = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const sectionAnimation = {
-    initial: { opacity: 0, y: 35 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: '-60px' },
-    transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] },
-  };
 
   return (
     <div className="relative min-h-screen bg-dark-900 text-neutral-100 font-sans selection:bg-accent-cyan/20 selection:text-accent-cyan overflow-x-hidden">
@@ -77,40 +73,23 @@ export const App: React.FC = () => {
       {/* Background Topographic Wave Contours */}
       <ContourLines />
 
+      {/* Vertical Section Indicator Dots (Awwwards Navigation) */}
+      <SectionDots activeSection={activeSection} />
+
       {/* Main Content Area */}
       <div className={`transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         {/* Sticky Glass Navbar */}
         <Navbar activeSection={activeSection} />
 
-        {/* Sections with smooth scroll reveals */}
+        {/* Sections: Clean, single unique DOM elements with zero transform shift */}
         <main id="main-content">
-          <div id="hero">
-            <Hero />
-          </div>
-
-          <motion.div id="about" {...sectionAnimation}>
-            <About />
-          </motion.div>
-
-          <motion.div id="stack" {...sectionAnimation}>
-            <TechStack />
-          </motion.div>
-
-          <motion.div id="projects" {...sectionAnimation}>
-            <Projects />
-          </motion.div>
-
-          <motion.div id="experience" {...sectionAnimation}>
-            <Experience />
-          </motion.div>
-
-          <motion.div {...sectionAnimation}>
-            <Certifications />
-          </motion.div>
-
-          <motion.div id="contact" {...sectionAnimation}>
-            <Contact />
-          </motion.div>
+          <Hero />
+          <About />
+          <TechStack />
+          <Projects />
+          <Experience />
+          <Certifications />
+          <Contact />
         </main>
 
         {/* Global Footer */}

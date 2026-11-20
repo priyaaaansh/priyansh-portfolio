@@ -28,7 +28,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-[95vh] md:min-h-screen flex flex-col justify-between pt-28 pb-12 px-6 md:px-14 lg:px-20 overflow-hidden">
+    <section id="hero" className="snap-section relative min-h-[95vh] md:min-h-screen flex flex-col justify-between pt-28 pb-12 px-6 md:px-14 lg:px-20 overflow-hidden">
       {/* Interactive 60fps canvas backdrop */}
       <CanvasBackground />
 
