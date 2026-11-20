@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, GraduationCap } from 'lucide-react';
 import { StatCounter } from './StatCounter';
+import { getAssetUrl } from '../utils/assets';
 
 export const About: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ export const About: React.FC = () => {
             {/* Visual Photo Container */}
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-900 flex items-center justify-center">
               <img
-                src="./profile.jpg"
+                src={getAssetUrl('profile.jpg')}
                 alt="Priyansh Thapar - Full Stack Developer"
                 className="w-full h-full object-cover object-top contrast-105 group-hover:scale-105 transition-transform duration-700"
                 loading="eager"

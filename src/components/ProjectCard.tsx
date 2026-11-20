@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Github, Layers, Sparkles } from 'lucide-react';
 import { Project } from '../types';
+import { getAssetUrl } from '../utils/assets';
 
 interface ProjectCardProps {
   project: Project;
@@ -62,7 +63,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, ind
         {/* Top Media / Mockup Container */}
         <div className="relative aspect-video rounded-2xl overflow-hidden mb-6 bg-dark-900 border border-neutral-800/80 group-hover:border-neutral-700 transition-colors">
           <img
-            src={project.image}
+            src={getAssetUrl(project.image || '')}
             alt={project.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             loading="lazy"

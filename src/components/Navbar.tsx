@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, FileText, ArrowUpRight } from 'lucide-react';
+import { getAssetUrl } from '../utils/assets';
 
 interface NavbarProps {
   activeSection: string;
@@ -74,7 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         {/* Right Action Buttons */}
         <div className="hidden sm:flex items-center gap-3">
           <a
-            href="./Priyansh_Thapar_Resume.pdf"
+            href={getAssetUrl('Priyansh_Thapar_Resume.pdf')}
             target="_blank"
             rel="noopener noreferrer"
             download="Priyansh_Thapar_Resume.pdf"
@@ -121,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             </nav>
             <div className="pt-3 border-t border-neutral-800">
               <a
-                href="./Priyansh_Thapar_Resume.pdf"
+                href={getAssetUrl('Priyansh_Thapar_Resume.pdf')}
                 target="_blank"
                 rel="noopener noreferrer"
                 download="Priyansh_Thapar_Resume.pdf"

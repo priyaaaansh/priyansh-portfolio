@@ -35,7 +35,7 @@ jobs:
       - name: Build production bundle
         run: npm run build
         env:
-          VITE_BASE_PATH: './'
+          VITE_BASE_PATH: '/priyansh-portfolio/'
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3

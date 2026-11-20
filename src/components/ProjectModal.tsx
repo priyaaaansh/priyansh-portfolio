@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Github, ExternalLink, CheckCircle, Sparkles } from 'lucide-react';
 import { Project } from '../types';
+import { getAssetUrl } from '../utils/assets';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -73,7 +74,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {project.image && (
             <div className="relative aspect-video rounded-2xl overflow-hidden mb-8 border border-neutral-800">
               <img
-                src={project.image}
+                src={getAssetUrl(project.image || '')}
                 alt={project.title}
                 className="w-full h-full object-cover"
               />
